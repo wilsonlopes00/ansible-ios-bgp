@@ -11,11 +11,11 @@ https://github.com/wilsonlopes00/ansible-ios-prefix-list-route-map
 
 You must define the variables:
 
-**remote_as** 
-**neighbor_ip**
-**password**
-**route_map_in**
-**route_map_out**
+**remote_as** <br>
+**neighbor_ip**<br>
+**password**<br>
+**route_map_in**<br>
+**route_map_out**<br>
 
 <br>
 
