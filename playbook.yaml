@@ -1,0 +1,25 @@
+---
+- hosts: edge-routers
+  gather_facts: false
+  connection: local
+  vars_files:
+    - vars.yaml
+
+  tasks:
+  - name: Configure bgp neighbor with ASN {{ remote_as }} - {{ neighbor_ip }}
+    vars:
+      neighbor_ip: 169.254.0.2
+      password: SOMESTRONGPASSWORDHERE
+    import_role:
+      name: ios-bgp
+
+  tasks:
+  - name: Configure bgp neighbor with ASN {{ remote_as }} - {{ neighbor_ip }}
+    vars:
+      remote_as: 65002
+      neighbor_ip: 169.254.0.6
+      password: SOMESTRONGPASSWORDHERE
+      route_map_in: other_route_map_in
+      route_map_out: other_route_map_out
+    import_role:
+      name: ios-bgp
