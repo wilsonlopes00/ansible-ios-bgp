@@ -9,8 +9,10 @@ https://github.com/wilsonlopes00/ansible-ios-prefix-list-route-map
 
 # Variables
 
+You can define default variable values in the file vars.yaml.
 You must define the variables:
 
+**local_as**<br>
 **remote_as** <br>
 **neighbor_ip**<br>
 **password**<br>
