@@ -1,0 +1,39 @@
+- name: Configure bgp neighbor {{ neighbor_ip }}
+  ios_bgp:
+    config:
+      bgp_as: {{ local_as }}
+      neighbors:
+        - neighbor: {{ neighbor_ip }}
+          remote_as: {{ remote_as }}
+          password: {{ password }}
+          description: BGP session with {{ neighbor_ip }}
+      address_family:
+        - afi: ipv4
+          safi: unicast
+          neighbors:
+            - neighbor: {{ neighbor_ip }}
+              activate: yes
+
+- name: Configure route maps with {{ neighbor_ip }}
+  ios_config:
+    lines: 
+      - neighbor {{ neighbor_ip }} route-map {{ route_map_in }} in
+      - neighbor {{ neighbor_ip }} route-map {{ route_map_out }} out
+    parents:
+      - router bgp {{ local_as }}
+      - address-family ipv4
+
+- pause:
+    seconds: 10
+    prompt: "Waiting 10 seconds to bgp session negotiation..."
+
+
+- name: show bgp routes with neighbor {{ neighbor_ip }}
+  ios_command:
+    commands: 
+      - show ip bgp neighbors {{ neighbor_ip }} advertised-routes
+      - show ip bgp neighbors {{ neighbor_ip }} received-routes
+  register: output
+
+- debug:
+    var=output.stdout_lines
