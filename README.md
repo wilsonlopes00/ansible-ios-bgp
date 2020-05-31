@@ -26,7 +26,7 @@ $ ansible-playbook -i hosts playbook.yaml --ask-pass
 ```
 
 
-You can configure the bgp sessions with any neighbors at the same time by changing the variable values
+You can configure the bgp sessions with all neighbors at the same time by changing the variables values.
 Example:
 
 ```sh
