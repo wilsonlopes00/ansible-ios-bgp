@@ -13,7 +13,6 @@
     import_role:
       name: ios-bgp
 
-  tasks:
   - name: Configure bgp neighbor with ASN {{ remote_as }} - {{ neighbor_ip }}
     vars:
       remote_as: 65002
