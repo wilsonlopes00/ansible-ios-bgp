@@ -22,10 +22,37 @@ You must define the variables:
 
 <br>
 
-# Running Playbooks:
+The **password** variable can be defined in the file secrets.yaml, and encrypted with ansible-vault.
+
+To encrypt the file:
 
 ```sh
-$ ansible-playbook -i hosts playbook.yaml --ask-pass
+$ ansible-vault encrypt secrets.yaml 
+New Vault password: 
+Confirm New Vault password: 
+Encryption successful
+
+$ cat secrets.yaml 
+$ANSIBLE_VAULT;1.1;AES256
+30313234373239643336363666393134383034613230643737393137396637623632653638336461
+3833326637343164623036663830356132353563656635300a356333396636633132336466663932
+34646639326630663663643262306332396565633532376136396537363036326161316564313733
+3065323336636530660a62623866YYTFF43236363434393564303039313561383330623033396264
+36643864333661623135303034323733343539373530653739663334616561643836666362653239
+36323931343537623134623234643861313931UIQQQQ313665313936636433383062666365303136
+39613630376336376566643739333737343961383864623333366561373139663534666363663032
+34313737623735616337
+```
+<br>
+
+
+
+# Running Playbooks:
+
+With secrets.yaml encrypted, add "--ask-vault-pass" to command line:
+
+```sh
+$ ansible-playbook -i hosts playbook.yaml --ask-vault-pass --ask-pass
 ```
 
 
@@ -37,7 +64,6 @@ Example:
     vars:
       remote_as: 65004
       neighbor_ip: 169.254.0.10
-      password: SOMESTRONGPASSWORDHERE
       route_map_in: other_route_map_in
       route_map_out: other_route_map_out
     import_role:
@@ -47,7 +73,6 @@ Example:
     vars:
       remote_as: 65005
       neighbor_ip: 10.0.0.2
-      password: SOMESTRONGPASSWORDHERE
       route_map_in: other_route_map_in
       route_map_out: other_route_map_out
     import_role:
