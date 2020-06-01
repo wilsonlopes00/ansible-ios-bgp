@@ -51,7 +51,7 @@ $ANSIBLE_VAULT;1.1;AES256
 
 # Running Playbooks:
 
-With secrets.yaml encrypted, add "--ask-vault-pass" to command line:
+With secrets.yaml encrypted, add "--ask-vault-pass" to the command line:
 
 ```sh
 $ ansible-playbook -i hosts playbook.yaml --ask-vault-pass --ask-pass
