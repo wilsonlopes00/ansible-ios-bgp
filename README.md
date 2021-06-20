@@ -26,6 +26,15 @@ You must define the variables:
 
 The **password** variable can be defined in the file secrets.yaml, and encrypted with ansible-vault.
 
+<br>
+
+secrets.yaml
+---
+169.254.0.2_passwd: SOMEPASSWORD
+169.254.0.6_passwd: SOMEOTHERPASSWORD
+
+<br>
+
 To encrypt the file:
 
 ```sh
