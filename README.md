@@ -29,8 +29,12 @@ The **password** variable can be defined in the file secrets.yaml, and encrypted
 <br>
 
 secrets.yaml
+
+<br>
+
 ---
 169.254.0.2_passwd: SOMEPASSWORD
+<br>
 169.254.0.6_passwd: SOMEOTHERPASSWORD
 
 <br>
