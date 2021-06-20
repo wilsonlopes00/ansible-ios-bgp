@@ -32,7 +32,6 @@ secrets.yaml
 
 <br>
 
----
 169.254.0.2_passwd: SOMEPASSWORD
 <br>
 169.254.0.6_passwd: SOMEOTHERPASSWORD
