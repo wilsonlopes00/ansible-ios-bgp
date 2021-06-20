@@ -66,7 +66,8 @@ Example:
     vars:
       local_as: 65000
       remote_as: 65004
-      neighbor_ip: 169.254.0.10
+      neighbor_ip: 169.254.0.2
+      password: '{{ vars["169.254.0.2_passwd"] }}'
       route_map_in: other_route_map_in
       route_map_out: other_route_map_out
     import_role:
@@ -76,7 +77,8 @@ Example:
     vars:
       local_as: 65000
       remote_as: 65005
-      neighbor_ip: 10.0.0.2
+      neighbor_ip: 169.254.0.6
+      password: '{{ vars["169.254.0.6_passwd"] }}'
       route_map_in: other_route_map_in
       route_map_out: other_route_map_out
     import_role:
