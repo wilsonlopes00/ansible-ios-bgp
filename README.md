@@ -1,7 +1,9 @@
 # ansible-ios-bgp
-Role and an example of playbook to configure bgp sessions on Cisco IOS devices, with route-map configuration per neighbor support. This is not possible to configure with the default ios_bgp ansible module alone.
+Role and an example of playbook to configure bgp sessions on Cisco IOS devices, with route-map configuration per neighbor support.
 
 The bgp password can be defined in an encrypted variable file with ansible vault.
+
+The status of bgp sessions, routes advertised and receveid are printed in the end of execution.
 
 You can use also the role "ansible-ios-prefix-list-route-map" to configure the route-maps used here.
 https://github.com/wilsonlopes00/ansible-ios-prefix-list-route-map
