@@ -1,2 +1,5 @@
-[edge-routers]
+[routers]
 x.x.x.x
+
+[routers:vars]
+ansible_network_os=cisco.ios.ios
