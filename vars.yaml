@@ -1,5 +1,3 @@
 ---
 local_as: 65000
-remote_as: 65001
-route_map_in: route-map-test-in
-route_map_out: route-map-test-out
+
