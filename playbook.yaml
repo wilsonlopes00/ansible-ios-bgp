@@ -11,6 +11,7 @@
   - name: Configure bgp neighbor with ASN {{ remote_as }} - {{ neighbor_ip }}
     vars:
       neighbor_ip: 169.254.0.2
+      remote_as: 65001
       password: '{{ vars["169.254.0.2_passwd"] }}'
       route_map_in: route-map-test-in
       route_map_out: route-map-test-out
